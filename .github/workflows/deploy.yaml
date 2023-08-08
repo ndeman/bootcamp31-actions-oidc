@@ -8,10 +8,10 @@ on:
       aws-region:
         required: true
         type: string
-      secrets:
-        CI_ROLE:
-          required: true
-          type: string
+    secrets:
+      CI_ROLE:
+        required: true
+        
 
 
 jobs:
