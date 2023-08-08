@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "git_aws_oidc" {
     condition {
       test     = "StringLike"
       variable = "${replace(aws_iam_openid_connect_provider.git.url, "https://", "")}:sub"
-      values   = ["repo:Kenmakhanu/bootcamp31-actions-oidc:*"]
+      values   = [""]
     }
 
 
@@ -37,11 +37,11 @@ data "aws_iam_policy_document" "git_aws_oidc" {
 
 resource "aws_iam_role" "git_action" {
   assume_role_policy = data.aws_iam_policy_document.git_aws_oidc.json
-  name               = "bootcamp31-git-oidc"
+  name               = ""
 }
 
 resource "aws_iam_policy" "git_action" {
-  name = "bootcamp31_oidc_policy"
+  name = ""
 
   policy = jsonencode({
     Statement = [{
@@ -63,5 +63,5 @@ output "git_actions_oidc" {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = ""
 }
