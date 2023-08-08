@@ -11,7 +11,7 @@ on:
     secrets:
       CI_ROLE:
         required: true
-        
+
 
 
 jobs:
@@ -37,3 +37,5 @@ jobs:
         run: terraform validate
       - name: Plan
         run: terraform plan
+      - name: Apply
+        run: terraform apply -auto-approve
