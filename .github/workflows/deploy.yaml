@@ -11,6 +11,7 @@ on:
       secrets:
         CI_ROLE:
           required: true
+          type: string
 
 
 jobs:
@@ -24,7 +25,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ secrets.CI_ROLE }}
-          aws_region: ${{ inputs.aws-region }}
+          aws-region: ${{ inputs.aws-region }}
 
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v2
